@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this scheduler or its measurements, cite the repository."
+title: "kv-serving-scheduler"
+abstract: "A bounded-KV serving scheduler for llama.cpp with admission control, block allocation, preemption, and measured overload behavior."
+authors:
+  - family-names: "Mkdad"
+    given-names: "Noor"
+repository-code: "https://github.com/DrMkdaddy/kv-serving-scheduler"
+license: MIT
+date-released: "2026-11-01"

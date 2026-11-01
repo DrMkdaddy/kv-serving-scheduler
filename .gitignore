@@ -1,0 +1,4 @@
+bin/
+work/
+results/logs/
+*.log

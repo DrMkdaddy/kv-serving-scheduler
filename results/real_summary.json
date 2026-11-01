@@ -1,0 +1,111 @@
+{
+  "schema": "kv-scheduler/real/v1",
+  "rates": [
+    {
+      "offered_rate": 1,
+      "requests": 19,
+      "completed": 19,
+      "errors": 0,
+      "throughput_tps": 121.6,
+      "wall_p50_ms": 923.5,
+      "wall_p99_ms": 948.8,
+      "ttft_p50_ms": 53.2,
+      "ttft_p99_ms": 55.3,
+      "queue_p99_ms": 3.2,
+      "preemptions": 0,
+      "source": "2026-11-01T23:37:43Z"
+    },
+    {
+      "offered_rate": 2,
+      "requests": 39,
+      "completed": 39,
+      "errors": 0,
+      "throughput_tps": 210.0,
+      "wall_p50_ms": 3249.1,
+      "wall_p99_ms": 4561.9,
+      "ttft_p50_ms": 1480.4,
+      "ttft_p99_ms": 3115.3,
+      "queue_p99_ms": 3053.8,
+      "preemptions": 0,
+      "source": "2026-11-01T23:38:08Z"
+    },
+    {
+      "offered_rate": 3,
+      "requests": 59,
+      "completed": 59,
+      "errors": 0,
+      "throughput_tps": 219.1,
+      "wall_p50_ms": 7969.8,
+      "wall_p99_ms": 9602.0,
+      "ttft_p50_ms": 6301.4,
+      "ttft_p99_ms": 8010.1,
+      "queue_p99_ms": 7958.6,
+      "preemptions": 0,
+      "source": "2026-11-01T23:38:43Z"
+    },
+    {
+      "offered_rate": 4,
+      "requests": 79,
+      "completed": 79,
+      "errors": 0,
+      "throughput_tps": 218.1,
+      "wall_p50_ms": 9038.5,
+      "wall_p99_ms": 10318.3,
+      "ttft_p50_ms": 7333.4,
+      "ttft_p99_ms": 8865.9,
+      "queue_p99_ms": 8804.7,
+      "preemptions": 0,
+      "source": "2026-11-01T23:39:31Z"
+    }
+  ],
+  "mixed": {
+    "low": {
+      "offered_rate": 3,
+      "requests": 89,
+      "completed": 89,
+      "errors": 0,
+      "throughput_tps": 214.8,
+      "wall_p50_ms": 9445.2,
+      "wall_p99_ms": 13920.6,
+      "ttft_p50_ms": 7793.9,
+      "ttft_p99_ms": 12211.6,
+      "queue_p99_ms": 12157.9,
+      "preemptions": 14,
+      "source": "2026-11-01T23:40:33Z"
+    },
+    "high": {
+      "offered_rate": 0.5,
+      "requests": 14,
+      "completed": 14,
+      "errors": 0,
+      "throughput_tps": 213.3,
+      "wall_p50_ms": 1526.0,
+      "wall_p99_ms": 1908.2,
+      "ttft_p50_ms": 56.5,
+      "ttft_p99_ms": 73.6,
+      "queue_p99_ms": 3.1,
+      "preemptions": 14,
+      "source": "2026-11-01T23:40:02Z"
+    },
+    "tenants": {
+      "high": {
+        "completed": 14,
+        "failed": 0,
+        "preempted": 0,
+        "queue_p99_ms": 3.10754569,
+        "requests": 14,
+        "tokens": 1792,
+        "ttft_p99_ms": 73.665751
+      },
+      "low": {
+        "completed": 89,
+        "failed": 0,
+        "preempted": 14,
+        "queue_p99_ms": 12157.9021844,
+        "requests": 89,
+        "tokens": 11392,
+        "ttft_p99_ms": 12211.653758120001
+      }
+    }
+  }
+}

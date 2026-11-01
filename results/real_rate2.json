@@ -1,0 +1,417 @@
+{
+  "schema": "kv-scheduler/loadgen/v1",
+  "generated_at": "2026-11-01T23:38:08Z",
+  "url": "http://127.0.0.1:8080",
+  "rate": 2,
+  "duration_s": 23.76140925,
+  "concurrency": 16,
+  "max_tokens": 128,
+  "requests": 39,
+  "completed": 39,
+  "errors": 0,
+  "wall_p50_ms": 3249.053441,
+  "wall_p99_ms": 4561.88964868,
+  "ttft_p50_ms": 1480.4,
+  "ttft_p99_ms": 3115.306,
+  "queue_p99_ms": 3053.75,
+  "preemptions": 0,
+  "server": {
+    "free_slots": 4,
+    "kv": {
+      "active_sequences": 0,
+      "allocated_tokens": 0,
+      "block_size": 256,
+      "fragmentation_free_runs": 1,
+      "free_blocks": 3,
+      "internal_waste_tokens": 0,
+      "largest_free_run": 3,
+      "total_blocks": 3,
+      "used_blocks": 0,
+      "used_tokens": 0,
+      "utilization": 0
+    },
+    "metrics": {
+      "admitted": 39,
+      "completed": 39,
+      "failed": 0,
+      "itl_p50_ms": 10.375708,
+      "itl_p95_ms": 18.272848,
+      "itl_p99_ms": 42.51500752,
+      "preempted": 0,
+      "queue_p50_ms": 1426.60067,
+      "queue_p99_ms": 3053.76372638,
+      "requests": 39,
+      "tenants": {
+        "load": {
+          "completed": 39,
+          "failed": 0,
+          "preempted": 0,
+          "queue_p99_ms": 3053.76372638,
+          "requests": 39,
+          "tokens": 4992,
+          "ttft_p99_ms": 3115.30256254
+        }
+      },
+      "tokens": 4992,
+      "ttft_p50_ms": 1480.358757,
+      "ttft_p95_ms": 2961.9848984,
+      "ttft_p99_ms": 3115.30256254,
+      "uptime_seconds": 23.766901479
+    },
+    "queue": 0,
+    "running": 0
+  },
+  "rows": [
+    {
+      "id": 0,
+      "status": 200,
+      "wall_ms": 1172.975436,
+      "queue_ms": 2.7,
+      "ttft_ms": 61.9,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 1,
+      "status": 200,
+      "wall_ms": 1226.664544,
+      "queue_ms": 2.8,
+      "ttft_ms": 50.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 2,
+      "status": 200,
+      "wall_ms": 1456.81642,
+      "queue_ms": 1.7,
+      "ttft_ms": 51.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 3,
+      "status": 200,
+      "wall_ms": 1923.818722,
+      "queue_ms": 0.9,
+      "ttft_ms": 48.5,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 4,
+      "status": 200,
+      "wall_ms": 1923.368041,
+      "queue_ms": 2.8,
+      "ttft_ms": 53.5,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 5,
+      "status": 200,
+      "wall_ms": 1697.515727,
+      "queue_ms": 2.1,
+      "ttft_ms": 57.7,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 6,
+      "status": 200,
+      "wall_ms": 2074.448915,
+      "queue_ms": 424,
+      "ttft_ms": 476.7,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 7,
+      "status": 200,
+      "wall_ms": 2437.209093,
+      "queue_ms": 424.7,
+      "ttft_ms": 477.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 8,
+      "status": 200,
+      "wall_ms": 2209.654023,
+      "queue_ms": 198.7,
+      "ttft_ms": 249.8,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 9,
+      "status": 200,
+      "wall_ms": 2195.528426,
+      "queue_ms": 577,
+      "ttft_ms": 639.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 10,
+      "status": 200,
+      "wall_ms": 2576.115466,
+      "queue_ms": 938.7,
+      "ttft_ms": 989.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 11,
+      "status": 200,
+      "wall_ms": 2618.703097,
+      "queue_ms": 710.4,
+      "ttft_ms": 773.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 12,
+      "status": 200,
+      "wall_ms": 2590.929664,
+      "queue_ms": 696.6,
+      "ttft_ms": 745,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 13,
+      "status": 200,
+      "wall_ms": 2558.225033,
+      "queue_ms": 1077.1,
+      "ttft_ms": 1146.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 14,
+      "status": 200,
+      "wall_ms": 2530.645664,
+      "queue_ms": 1119.8,
+      "ttft_ms": 1170.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 15,
+      "status": 200,
+      "wall_ms": 2924.378098,
+      "queue_ms": 1091.9,
+      "ttft_ms": 1144.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 16,
+      "status": 200,
+      "wall_ms": 2928.330057,
+      "queue_ms": 1057.2,
+      "ttft_ms": 1108.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 17,
+      "status": 200,
+      "wall_ms": 2703.347499,
+      "queue_ms": 1032.3,
+      "ttft_ms": 1096.7,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 18,
+      "status": 200,
+      "wall_ms": 3077.926056,
+      "queue_ms": 1426.6,
+      "ttft_ms": 1480.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 19,
+      "status": 200,
+      "wall_ms": 3463.595464,
+      "queue_ms": 1430.8,
+      "ttft_ms": 1483.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 20,
+      "status": 200,
+      "wall_ms": 3249.053441,
+      "queue_ms": 1204,
+      "ttft_ms": 1254.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 21,
+      "status": 200,
+      "wall_ms": 3251.247,
+      "queue_ms": 1579.1,
+      "ttft_ms": 1643.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 22,
+      "status": 200,
+      "wall_ms": 3637.955408,
+      "queue_ms": 1964.7,
+      "ttft_ms": 2024,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 23,
+      "status": 200,
+      "wall_ms": 3637.693744,
+      "queue_ms": 1750.7,
+      "ttft_ms": 1807,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 24,
+      "status": 200,
+      "wall_ms": 3613.32138,
+      "queue_ms": 1752.4,
+      "ttft_ms": 1803,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 25,
+      "status": 200,
+      "wall_ms": 3590.054835,
+      "queue_ms": 2138.8,
+      "ttft_ms": 2204.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 26,
+      "status": 200,
+      "wall_ms": 3555.857406,
+      "queue_ms": 2138.4,
+      "ttft_ms": 2193.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 27,
+      "status": 200,
+      "wall_ms": 3919.107764,
+      "queue_ms": 2114.3,
+      "ttft_ms": 2165.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 28,
+      "status": 200,
+      "wall_ms": 3896.726498,
+      "queue_ms": 2090.3,
+      "ttft_ms": 2141.1,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 29,
+      "status": 200,
+      "wall_ms": 3662.861888,
+      "queue_ms": 2056.4,
+      "ttft_ms": 2119.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 30,
+      "status": 200,
+      "wall_ms": 4019.967858,
+      "queue_ms": 2421.2,
+      "ttft_ms": 2471.9,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 31,
+      "status": 200,
+      "wall_ms": 4392.883262,
+      "queue_ms": 2397.6,
+      "ttft_ms": 2449.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 32,
+      "status": 200,
+      "wall_ms": 4154.730927,
+      "queue_ms": 2164.1,
+      "ttft_ms": 2213.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 33,
+      "status": 200,
+      "wall_ms": 4175.331179,
+      "queue_ms": 2520.8,
+      "ttft_ms": 2584.1,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 34,
+      "status": 200,
+      "wall_ms": 4553.008419,
+      "queue_ms": 2894.5,
+      "ttft_ms": 2945.7,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 35,
+      "status": 200,
+      "wall_ms": 4551.175803,
+      "queue_ms": 2655.9,
+      "ttft_ms": 2706.7,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 36,
+      "status": 200,
+      "wall_ms": 4567.332983,
+      "queue_ms": 2677,
+      "ttft_ms": 2729.5,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 37,
+      "status": 200,
+      "wall_ms": 4514.077768,
+      "queue_ms": 3054.7,
+      "ttft_ms": 3119.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 38,
+      "status": 200,
+      "wall_ms": 4260.900106,
+      "queue_ms": 3052.2,
+      "ttft_ms": 3108.3,
+      "preemptions": 0,
+      "tokens": 128
+    }
+  ]
+}

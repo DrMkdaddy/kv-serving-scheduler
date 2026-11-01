@@ -1,0 +1,237 @@
+{
+  "schema": "kv-scheduler/loadgen/v1",
+  "generated_at": "2026-11-01T23:37:43Z",
+  "url": "http://127.0.0.1:8080",
+  "rate": 1,
+  "duration_s": 20.001043289,
+  "concurrency": 16,
+  "max_tokens": 128,
+  "requests": 19,
+  "completed": 19,
+  "errors": 0,
+  "wall_p50_ms": 923.516749,
+  "wall_p99_ms": 948.8355067,
+  "ttft_p50_ms": 53.2,
+  "ttft_p99_ms": 55.282,
+  "queue_p99_ms": 3.164,
+  "preemptions": 0,
+  "server": {
+    "free_slots": 4,
+    "kv": {
+      "active_sequences": 0,
+      "allocated_tokens": 0,
+      "block_size": 256,
+      "fragmentation_free_runs": 1,
+      "free_blocks": 3,
+      "internal_waste_tokens": 0,
+      "largest_free_run": 3,
+      "total_blocks": 3,
+      "used_blocks": 0,
+      "used_tokens": 0,
+      "utilization": 0
+    },
+    "metrics": {
+      "admitted": 19,
+      "completed": 19,
+      "failed": 0,
+      "itl_p50_ms": 6.780207,
+      "itl_p95_ms": 7.4378742,
+      "itl_p99_ms": 8.662248760000015,
+      "preempted": 0,
+      "queue_p50_ms": 2.558357,
+      "queue_p99_ms": 3.13573834,
+      "requests": 19,
+      "tenants": {
+        "load": {
+          "completed": 19,
+          "failed": 0,
+          "preempted": 0,
+          "queue_p99_ms": 3.13573834,
+          "requests": 19,
+          "tokens": 2432,
+          "ttft_p99_ms": 55.28248052
+        }
+      },
+      "tokens": 2432,
+      "ttft_p50_ms": 53.1723,
+      "ttft_p95_ms": 55.237202599999996,
+      "ttft_p99_ms": 55.28248052,
+      "uptime_seconds": 20.007692668
+    },
+    "queue": 0,
+    "running": 0
+  },
+  "rows": [
+    {
+      "id": 0,
+      "status": 200,
+      "wall_ms": 921.508385,
+      "queue_ms": 2.9,
+      "ttft_ms": 54.8,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 1,
+      "status": 200,
+      "wall_ms": 930.987495,
+      "queue_ms": 2.8,
+      "ttft_ms": 53.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 2,
+      "status": 200,
+      "wall_ms": 938.268266,
+      "queue_ms": 2.8,
+      "ttft_ms": 55.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 3,
+      "status": 200,
+      "wall_ms": 920.337382,
+      "queue_ms": 1.8,
+      "ttft_ms": 52,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 4,
+      "status": 200,
+      "wall_ms": 933.279503,
+      "queue_ms": 2.6,
+      "ttft_ms": 55.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 5,
+      "status": 200,
+      "wall_ms": 915.600515,
+      "queue_ms": 3,
+      "ttft_ms": 54.6,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 6,
+      "status": 200,
+      "wall_ms": 920.757151,
+      "queue_ms": 2.8,
+      "ttft_ms": 54.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 7,
+      "status": 200,
+      "wall_ms": 925.773248,
+      "queue_ms": 1.8,
+      "ttft_ms": 52.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 8,
+      "status": 200,
+      "wall_ms": 906.657061,
+      "queue_ms": 1.7,
+      "ttft_ms": 52.1,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 9,
+      "status": 200,
+      "wall_ms": 912.972074,
+      "queue_ms": 1.8,
+      "ttft_ms": 53.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 10,
+      "status": 200,
+      "wall_ms": 923.516749,
+      "queue_ms": 1.8,
+      "ttft_ms": 53.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 11,
+      "status": 200,
+      "wall_ms": 942.050809,
+      "queue_ms": 3.2,
+      "ttft_ms": 53.3,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 12,
+      "status": 200,
+      "wall_ms": 932.175285,
+      "queue_ms": 2.8,
+      "ttft_ms": 53.4,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 13,
+      "status": 200,
+      "wall_ms": 933.578811,
+      "queue_ms": 2.9,
+      "ttft_ms": 52.9,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 14,
+      "status": 200,
+      "wall_ms": 904.427128,
+      "queue_ms": 2.9,
+      "ttft_ms": 53,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 15,
+      "status": 200,
+      "wall_ms": 945.178811,
+      "queue_ms": 1.8,
+      "ttft_ms": 52.8,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 16,
+      "status": 200,
+      "wall_ms": 900.068862,
+      "queue_ms": 1.8,
+      "ttft_ms": 51.2,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 17,
+      "status": 200,
+      "wall_ms": 903.812942,
+      "queue_ms": 1.8,
+      "ttft_ms": 52,
+      "preemptions": 0,
+      "tokens": 128
+    },
+    {
+      "id": 18,
+      "status": 200,
+      "wall_ms": 949.638196,
+      "queue_ms": 1.1,
+      "ttft_ms": 50.6,
+      "preemptions": 0,
+      "tokens": 128
+    }
+  ]
+}

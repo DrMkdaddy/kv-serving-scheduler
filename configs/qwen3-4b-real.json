@@ -1,0 +1,15 @@
+{
+  "listen": "127.0.0.1:8080",
+  "upstream": "http://127.0.0.1:8093",
+  "max_request_bytes": 4194304,
+  "timeout_ms": 300000,
+  "scheduler": {
+    "slots": 4,
+    "block_size": 256,
+    "total_blocks": 3,
+    "max_queue": 64,
+    "policy": "priority",
+    "preempt": "recompute",
+    "victim": "lowest_priority"
+  }
+}

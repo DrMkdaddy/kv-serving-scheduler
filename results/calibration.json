@@ -1,0 +1,33 @@
+{
+  "schema": "kv-scheduler/calibration/v1",
+  "generated_at": "2026-11-01T15:30:00Z",
+  "hardware": {
+    "gpu": "AMD Radeon RX 9070 XT (RADV GFX1201), 16 GB",
+    "cpu": "Intel Core i7-10700K",
+    "backend": "Vulkan"
+  },
+  "llama_cpp": {
+    "build": "b11050",
+    "commit": "60b06ab9a",
+    "binary": "/home/noorm/llama.cpp/src-b11050/build/bin/llama-server"
+  },
+  "server": {
+    "model": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "context": 16384,
+    "parallel": 8,
+    "gpu_layers": 99,
+    "kv_type": "f16",
+    "command": "llama-server -m Qwen3-4B-Instruct-2507-Q4_K_M.gguf -c 16384 -np 8 -ngl 99 -fa on -ctk f16 -ctv f16 --metrics"
+  },
+  "method": "For each n in 1,2,3,4,6,8, send n concurrent /completion requests (128 generated tokens, greedy, cache_prompt=false). Step time is 1000 * tokens_predicted_seconds_total / (n * n_decode_total); aggregate tok/s is the sum of per-request predicted_per_second. Three repetitions, last row recorded. VRAM sampled with rocm-smi.",
+  "points": [
+    {"n": 1, "step_ms": 6.60, "aggregate_tps": 150.3, "prefill_tps": 1933.6},
+    {"n": 2, "step_ms": 7.51, "aggregate_tps": 264.3, "prefill_tps": 1546.8},
+    {"n": 3, "step_ms": 8.30, "aggregate_tps": 358.8, "prefill_tps": 1489.0},
+    {"n": 4, "step_ms": 8.89, "aggregate_tps": 446.6, "prefill_tps": 1090.9},
+    {"n": 6, "step_ms": 11.02, "aggregate_tps": 540.2, "prefill_tps": 772.9},
+    {"n": 8, "step_ms": 13.45, "aggregate_tps": 590.0, "prefill_tps": 620.8}
+  ],
+  "vram_loaded_bytes": 6731231232,
+  "notes": "The 6-slot point was repeated later under host CPU load and came out at 25.6 ms; the first clean run is recorded. The simulator only uses the step-time curve, not the absolute aggregate."
+}
