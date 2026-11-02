@@ -1,5 +1,7 @@
 # kv-serving-scheduler
 
+[![test](https://github.com/DrMkdaddy/kv-serving-scheduler/actions/workflows/test.yml/badge.svg)](https://github.com/DrMkdaddy/kv-serving-scheduler/actions/workflows/test.yml)
+
 A serving scheduler for llama.cpp with a hard KV-cache budget: continuous
 batching, block allocation, admission control, preemption, and per-tenant
 fairness. Built to be measured at 120% of capacity on one 16 GB GPU, not to
