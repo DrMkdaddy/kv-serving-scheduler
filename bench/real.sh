@@ -25,7 +25,12 @@ fi
   -c 16384 -np 8 -ngl 99 -fa on -ctk f16 -ctv f16 --metrics \
   > "${TMPDIR:-/tmp}/kv-real-server.log" 2>&1 &
 SERVER=$!
-trap 'kill "$SERVER" 2>/dev/null || true' EXIT
+PROXY_PID=""
+cleanup() {
+  if [ -n "$PROXY_PID" ]; then kill "$PROXY_PID" 2>/dev/null || true; fi
+  kill "$SERVER" 2>/dev/null || true
+}
+trap cleanup EXIT
 
 for _ in $(seq 1 120); do
   if curl -sf "http://127.0.0.1:${UPSTREAM_PORT}/health" >/dev/null; then break; fi
@@ -44,6 +49,7 @@ restart_proxy() {
     --listen "127.0.0.1:${PROXY_PORT}" \
     --upstream "http://127.0.0.1:${UPSTREAM_PORT}" \
     > "${TMPDIR:-/tmp}/kv-proxy.log" 2>&1 &
+  PROXY_PID=$!
   for _ in $(seq 1 60); do
     if curl -sf "http://127.0.0.1:${PROXY_PORT}/health" >/dev/null; then return; fi
     sleep 0.5
