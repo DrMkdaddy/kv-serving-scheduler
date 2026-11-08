@@ -4,8 +4,7 @@
 
 A serving scheduler for llama.cpp with a hard KV-cache budget: continuous
 batching, block allocation, admission control, preemption, and per-tenant
-fairness. Built to be measured at 120% of capacity on one 16 GB GPU, not to
-pretend to serve at 500 concurrent users.
+fairness. The measurements stop at 120% of capacity on one 16 GB GPU.
 
 The repo has two paths that share the same allocator and policy code:
 
@@ -18,8 +17,9 @@ The repo has two paths that share the same allocator and policy code:
   expose: swap vs recompute preemption, fairness under overload, and KV
   fragmentation over time.
 
-The point is not to reimplement vLLM. The point is to make the scheduling
-decisions visible and measure what they cost.
+Both paths exist to measure scheduling policy: the simulator runs sweeps the
+server cannot expose, and the proxy runs the same policy against a real
+`llama-server`.
 
 ```mermaid
 flowchart LR
@@ -36,7 +36,6 @@ flowchart LR
     P --> M["TTFT p50/p99<br/>ITL, goodput, Jain fairness"]
     SIM["cmd/sim<br/>calibrated service times"] --> M
 ```
-
 
 ## What is measured
 
@@ -99,11 +98,11 @@ Source: `results/sim_20261101.json`. Calibration: `results/calibration.json`
 | Swap 120% | 2.04 | 392 | 2782 ms | 8191 ms | 155 | 29.5% |
 | No preemption 120% | 1.48 | 281 | 443 ms | 2440 ms | 0 | 59.5% |
 
-The 120% row is the interesting one: the system is still completing requests,
-but the p99 TTFT is 14.4 s and only 24% of offered requests meet both SLOs.
-Swapping instead of recomputing buys 8% throughput and 5.5 points of goodput.
-Shedding keeps the successful requests fast (p99 2.4 s) but fails 74 of 200;
-goodput counts those failures, so it is not a free win.
+At 120% load the system is still completing requests, but the p99 TTFT is
+14.4 s and only 24% of offered requests meet both SLOs. Swapping instead of
+recomputing buys 8% throughput and 5.5 points of goodput. Shedding keeps the
+successful requests fast (p99 2.4 s) but fails 74 of 200; goodput counts those
+failures, so it is not a free win.
 
 ### Per-tenant fairness under a skewed arrival mix
 
@@ -148,8 +147,8 @@ requests keep a 74 ms p99 while the low-priority queue absorbs the overload and
 
 The real proxy tops out near 219 tok/s because it reserves 3 blocks and uses
 the per-token SSE path to observe TTFT/ITL. The direct llama-server calibration
-at 3 resident sequences is 359 tok/s. The gap is stated rather than hidden; the
-simulator uses the direct curve, so its absolute throughput is an upper bound.
+at 3 resident sequences is 359 tok/s. The simulator uses the direct curve, so
+its absolute throughput is an upper bound.
 <!-- RESULTS:END -->
 
 ## Design
@@ -163,7 +162,7 @@ The scheduler has four pieces:
 2. **Admission.** A request enters the queue with a prompt-token count and a
    maximum output length. It is admitted only when a slot is free and its
    initial prompt blocks fit. The queue has a hard limit; beyond it the proxy
-   returns 429 rather than growing without bound.
+   returns 429.
 3. **Continuous batching.** The upstream llama-server already batches active
    slots. The proxy keeps every slot fed and measures the batch effect through
    llama-server's own counters. The simulator models the same effect with a
