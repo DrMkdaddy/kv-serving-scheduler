@@ -21,6 +21,23 @@ The repo has two paths that share the same allocator and policy code:
 The point is not to reimplement vLLM. The point is to make the scheduling
 decisions visible and measure what they cost.
 
+```mermaid
+flowchart LR
+    C["client"] --> P["cmd/serve<br/>Go proxy"]
+    P --> Q{"KV blocks free?"}
+    Q -- yes --> A["admit to a slot"]
+    Q -- no --> E{"preempt?"}
+    E -- swap --> S["evict sequence<br/>to host memory"]
+    E -- recompute --> R["cancel, requeue"]
+    A --> L["llama-server<br/>N slots"]
+    S --> L
+    R --> P
+    L --> P
+    P --> M["TTFT p50/p99<br/>ITL, goodput, Jain fairness"]
+    SIM["cmd/sim<br/>calibrated service times"] --> M
+```
+
+
 ## What is measured
 
 | Metric | Real proxy | Simulator |
