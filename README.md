@@ -4,7 +4,7 @@
 
 A serving scheduler for llama.cpp with a hard KV-cache budget: continuous
 batching, block allocation, admission control, preemption, and per-tenant
-fairness. The measurements stop at 120% of capacity on one 16 GB GPU.
+fairness. Measurements run to 120% of capacity on one 16 GB GPU.
 
 The repo has two paths that share the same allocator and policy code:
 
@@ -16,10 +16,6 @@ The repo has two paths that share the same allocator and policy code:
   service times. It is used for policy sweeps that the real server cannot
   expose: swap vs recompute preemption, fairness under overload, and KV
   fragmentation over time.
-
-Both paths exist to measure scheduling policy: the simulator runs sweeps the
-server cannot expose, and the proxy runs the same policy against a real
-`llama-server`.
 
 ```mermaid
 flowchart LR
@@ -102,7 +98,7 @@ At 120% load the system is still completing requests, but the p99 TTFT is
 14.4 s and only 24% of offered requests meet both SLOs. Swapping instead of
 recomputing buys 8% throughput and 5.5 points of goodput. Shedding keeps the
 successful requests fast (p99 2.4 s) but fails 74 of 200; goodput counts those
-failures, so it is not a free win.
+failures.
 
 ### Per-tenant fairness under a skewed arrival mix
 
@@ -114,11 +110,9 @@ Tenant `a` offers 80% of the requests, tenant `b` 20%. Same 120% load.
 | Priority (b high) | 14.4 s | **1.17 s** | 95 | 58 | 22.5% |
 | WFQ (equal weights) | 22.7 s | **1.34 s** | 105 | 40 | 26.5% |
 
-The light tenant's p99 TTFT drops by roughly 9x under both policies. The cost
-is paid by the heavy tenant, which is the trade-off the policy is supposed to
-make visible. The Jain completion-ratio index stays near 1 in all three rows
-because every request eventually completes; it is reported, but the per-tenant
-p99 is the useful fairness signal here.
+The light tenant's p99 TTFT drops by about 9x under both policies; the heavy
+tenant pays for it. Jain completion ratio stays near 1 because every request
+completes, so per-tenant p99 is the useful comparison.
 
 ### Real proxy: llama-server behind `cmd/serve`
 
@@ -140,10 +134,6 @@ Mixed-priority run at 3 req/s low priority plus 0.5 req/s high priority:
 |---|---:|---:|---:|---:|
 | high | 14 | **74 ms** | 3 ms | 0 |
 | low | 89 | 12212 ms | 12158 ms | 14 |
-
-This is the measured version of the simulator's priority result: high-priority
-requests keep a 74 ms p99 while the low-priority queue absorbs the overload and
-14 low-priority requests are preempted/recomputed.
 
 The real proxy tops out near 219 tok/s because it reserves 3 blocks and uses
 the per-token SSE path to observe TTFT/ITL. The direct llama-server calibration
@@ -172,19 +162,19 @@ The scheduler has four pieces:
    swaps it (simulator only). The real proxy uses recompute because llama.cpp
    does not expose a portable per-sequence GPU-to-host KV swap over HTTP.
 
-## Honest limits
+## Limits
 
 - One GPU, one model. The real proxy runs on the same card as the model; the
   simulator is calibrated to that card and is not a claim about another one.
 - The real proxy's block accounting is logical. llama.cpp owns the physical KV
   cache and allocates it up front from `-c` and `-np`; the proxy enforces a
-  smaller budget so eviction is forced. This is stated in the writeup because
-  it is the difference between admission control and a paged attention kernel.
+  smaller budget so eviction is forced. This is admission control, not a
+  paged-attention kernel.
 - The real proxy preempts non-streaming requests transparently. Streaming
   clients cannot be restarted without duplicate tokens, so the proxy only
   preempts a streaming request before its first token.
-- The simulator is a model. Its value is policy comparison under a fixed
-  calibration; its absolute numbers are not a substitute for the real run.
+- The simulator is for policy comparison under one calibration; its absolute
+  numbers are not a substitute for the real run.
 
 ## Layout
 
